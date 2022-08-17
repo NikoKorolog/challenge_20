@@ -44,11 +44,11 @@ contract JointSavings {
     */
     // YOUR CODE HERE!
 
-    address payable accountOne
-    address payable accountTwo
-    address public lastToWithdraw
-    uint public lastWithdrawAmount
-    uint public contractBalance 
+    address payable accountOne;
+    address payable accountTwo;
+    address public lastToWithdraw;
+    uint public lastWithdrawAmount;
+    uint public contractBalance;
 
     /*
     Define a function named **withdraw** that will accept two arguments.
@@ -62,7 +62,7 @@ contract JointSavings {
         */
         // YOUR CODE HERE!
 
-       require(recipient == accountOne or accountTwo);
+       require(recipient == accountOne || recipient == accountTwo, "You don't own this account!");
        return "You don't own this account!";
 
         /*
@@ -70,7 +70,7 @@ contract JointSavings {
         */
         // YOUR CODE HERE!
 
-    require(balance > amount)
+    require(amount <= contractBalance, "Insufficient funds!");
     return "Insufficient Funds!";
 
         /*
@@ -78,7 +78,7 @@ contract JointSavings {
         */
         // YOUR CODE HERE!
         if( lastToWithdraw != recipient) {   // if else statement
-      lastToWithdraw = recipient
+      lastToWithdraw = recipient;
       }       
 
         // Call the `transfer` function of the `recipient` and pass it the `amount` to transfer as an argument.
@@ -88,7 +88,7 @@ contract JointSavings {
         // Set  `lastWithdrawAmount` equal to `amount`
         // YOUR CODE HERE!
 
-        lastWithdrawAmount = amount
+        lastWithdrawAmount = amount;
 
         // Call the `contractBalance` variable and set it equal to the balance of the contract by using `address(this).balance` to reflect the new balance of the contract.
         // YOUR CODE HERE!
@@ -104,7 +104,7 @@ contract JointSavings {
         */
         // YOUR CODE HERE!
 
-        contractBalance = address(this).balance
+        contractBalance = address(this).balance;
 
 
     }
@@ -117,8 +117,8 @@ contract JointSavings {
         // Set the values of `accountOne` and `accountTwo` to `account1` and `account2` respectively.
         // YOUR CODE HERE!
 
-        accountOne = account1
-        accountTwo = account2
+        accountOne = account1;
+        accountTwo = account2;
     }
 
     /*
