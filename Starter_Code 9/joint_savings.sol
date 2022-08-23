@@ -63,7 +63,6 @@ contract JointSavings {
         // YOUR CODE HERE!
 
        require(recipient == accountOne || recipient == accountTwo, "You don't own this account!");
-       return "You don't own this account!";
 
         /*
         Define a `require` statement that checks if the `balance` is sufficient to accomplish the withdraw operation. If there are insufficient funds, the text `Insufficient funds!` is returned.
@@ -71,7 +70,6 @@ contract JointSavings {
         // YOUR CODE HERE!
 
     require(amount <= contractBalance, "Insufficient funds!");
-    return "Insufficient Funds!";
 
         /*
         Add and `if` statement to check if the `lastToWithdraw` is not equal to (`!=`) to `recipient` If `lastToWithdraw` is not equal, then set it to the current value of `recipient`.
@@ -92,7 +90,7 @@ contract JointSavings {
 
         // Call the `contractBalance` variable and set it equal to the balance of the contract by using `address(this).balance` to reflect the new balance of the contract.
         // YOUR CODE HERE!
-        contractBalance = address(this).balance
+        contractBalance = address(this).balance;
     }
 
 
